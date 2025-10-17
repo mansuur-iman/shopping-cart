@@ -1,0 +1,98 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  list-style: none;
+}
+
+.nav a {
+  position: relative;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #5352ed;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #5352ed;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cartIcon {
+  position: relative;
+}
+.cartIcon span {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #0011ff;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.8 1.8rem;
+  }
+  .logo img {
+    width: 34px;
+    height: 34px;
+  }
+  .nav {
+    gap: 1rem;
+  }
+  .nav button {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+  .nav svg {
+    width: 22px;
+    height: 22px;
+  }
+}
