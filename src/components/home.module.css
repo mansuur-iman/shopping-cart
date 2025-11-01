@@ -70,8 +70,21 @@
 }
 
 .sectionHeader h2 {
+  position: relative; /* needed for ::after positioning */
   font-size: 1.8rem;
   font-weight: 700;
+  color: var(--primaryText);
+}
+
+.sectionHeader h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* small gap below text */
+  left: 0;
+  height: 2px;
+  width: 60px; /* fixed underline length */
+  background-color: var(--accent);
+  border-radius: 2px;
 }
 
 .seeMore {
@@ -267,8 +280,8 @@
 }
 
 .ctaContent button {
-  background: #fff;
-  color: var(--accent);
+  background: var(--accent);
+  color: #fff;
   border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -279,8 +292,8 @@
 }
 
 .ctaContent button:hover {
-  background: var(--accentHover);
-  color: #fff;
+  background: #fff;
+  color: var(--accent);
 }
 
 .cta img {
@@ -396,6 +409,18 @@
 
   .heroContent h1 {
     font-size: 1.8rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .featured h2 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    position: relative;
   }
 
   .cta {

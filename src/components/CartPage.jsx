@@ -51,50 +51,64 @@ function CartPage({ cartItems, setCartItems }) {
       <h1 className={styles.pageTitle}>Your Cart</h1>
 
       <div className={styles.container}>
-        {cartItems.map((item) => (
-          <div key={item.id} className={styles.cartItem}>
-            <img src={item.image} alt={item.title} className={styles.image} />
+        {/* Left side - Cart Items */}
+        <div className={styles.cartItems}>
+          {cartItems.map((item) => (
+            <div key={item.id} className={styles.cartItem}>
+              <img src={item.image} alt={item.title} className={styles.image} />
 
-            <div className={styles.details}>
-              <h2 className={styles.title}>{item.title}</h2>
-              <p className={styles.price}>${item.price.toFixed(2)}</p>
-              <p className={styles.total}>
-                Total: ${(item.quantity * item.price).toFixed(2)}
-              </p>
-            </div>
-
-            <div className={styles.controls}>
-              <div className={styles.quantityControl}>
-                <button onClick={() => decreaseQuantity(item.id)}>
-                  <Minus size={16} />
-                </button>
-                <p>
-                  <strong>{item.quantity}</strong>
+              <div className={styles.details}>
+                <h2 className={styles.title}>{item.title}</h2>
+                <p className={styles.price}>${item.price.toFixed(2)}</p>
+                <p className={styles.total}>
+                  Total: ${(item.quantity * item.price).toFixed(2)}
                 </p>
-                <button onClick={() => increaseQuantity(item.id)}>
-                  <Plus size={16} />
-                </button>
               </div>
 
-              <button
-                className={styles.remove}
-                onClick={() => removeFromCart(item.id)}
-              >
-                <Trash2 size={16} />
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+              <div className={styles.controls}>
+                <div className={styles.quantityControl}>
+                  <button onClick={() => decreaseQuantity(item.id)}>
+                    <Minus size={16} />
+                  </button>
+                  <p>{item.quantity}</p>
+                  <button onClick={() => increaseQuantity(item.id)}>
+                    <Plus size={16} />
+                  </button>
+                </div>
 
-      <div className={styles.gross}>
-        <p>Subtotal: ${grossTotal.toFixed(2)}</p>
-        <button
-          className={styles.checkout}
-          onClick={() => alert("Checkout feature coming soon 🚀")}
-        >
-          Checkout
-        </button>
+                <button
+                  className={styles.remove}
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  <Trash2 size={16} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Right side - Summary */}
+        <div className={styles.summary}>
+          <h3>Order Summary</h3>
+          <div className={styles.summaryRow}>
+            <span>Subtotal</span>
+            <span>${grossTotal.toFixed(2)}</span>
+          </div>
+          <div className={styles.summaryRow}>
+            <span>Shipping</span>
+            <span>$0.00</span>
+          </div>
+          <div className={`${styles.summaryRow} ${styles.total}`}>
+            <span>Total</span>
+            <span>${grossTotal.toFixed(2)}</span>
+          </div>
+          <button
+            className={styles.checkout}
+            onClick={() => alert("Checkout coming soon 🚀")}
+          >
+            Checkout
+          </button>
+        </div>
       </div>
 
       <Link to="/shoppingpage" className={styles.backToShop}>
