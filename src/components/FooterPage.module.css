@@ -25,6 +25,10 @@
   text-transform: lowercase;
 }
 
+.logo a {
+  text-decoration: none;
+}
+
 .logo h1 span {
   color: var(--accent, #e63946);
 }
