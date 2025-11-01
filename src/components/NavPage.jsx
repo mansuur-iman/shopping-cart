@@ -116,7 +116,7 @@ export default function NavPage({ cartItems }) {
 
           <div className={styles.cartIcon}>
             <Link to="/cartpage" onClick={() => setMenuOpen(false)}>
-              <ShoppingCart size={22} />
+              <ShoppingCart size={18} />
               {itemCount > 0 && <span>{itemCount}</span>}
             </Link>
           </div>
