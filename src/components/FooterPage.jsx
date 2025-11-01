@@ -1,5 +1,5 @@
 import styles from "./FooterPage.module.css";
-import shopeLogo from "../assets/shope.svg";
+
 import { Link } from "react-router";
 import { Phone, Mail, MapPin } from "lucide-react";
 export default function FooterPage() {
@@ -9,16 +9,24 @@ export default function FooterPage() {
     <footer className={styles.container}>
       <div>
         <div className={styles.intro}>
-          <Link to="/">
-            <img src={shopeLogo} alt={"shope log"}></img>
-          </Link>
-          <p>
-            Your trusted online shop for the best products at unbeatable prices.
+          <div className={styles.logo}>
+            <Link to="/">
+              <h1>
+                urban<span>store</span>
+              </h1>
+            </Link>
+          </div>
+
+          <p className={styles.description}>
+            At Urbanstore, we bring you a carefully curated selection of
+            products that combine quality, style, and affordability. From
+            everyday essentials to trending collections, we’re committed to
+            giving you a seamless shopping experience that you can trust.
           </p>
         </div>
 
         <div className={styles.links}>
-          <h3>Quick Links</h3>
+          <h3>Company</h3>
           <ul>
             <li>
               <a href="/">Home</a>
@@ -33,7 +41,7 @@ export default function FooterPage() {
         </div>
 
         <div className={styles.contact}>
-          <h3>Get in Touch</h3>
+          <h3>Get in touch</h3>
           <p>
             <Phone />
             +1 (555) 123-4567

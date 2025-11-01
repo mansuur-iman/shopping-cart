@@ -1,98 +1,189 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #ffffff;
-  color: #000;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.08);
+.header {
+  width: 100%;
+  background-color: var(--primaryBg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-.logo img {
-  width: 44px;
-  height: 44px;
-  cursor: pointer;
-}
-
-.nav {
+/* ===== Top Banner ===== */
+.topBanner {
   display: flex;
-  gap: 1.2rem;
   align-items: center;
-  list-style: none;
+  justify-content: center;
+  background-color: var(--secondaryBg);
+  color: var(--secondaryText);
+  font-size: 0.95rem;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
 }
 
-.nav a {
-  position: relative;
-  color: #000;
-  font-weight: bold;
+.bannerLink {
+  color: var(--accent);
+  font-weight: 600;
   text-decoration: none;
-  font-size: 1.1rem;
-  padding: 1rem 0;
   transition: color 0.3s ease;
 }
 
-.nav a:hover {
-  color: #5352ed;
+.bannerLink:hover {
+  color: var(--accentHover);
 }
 
-.nav a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #5352ed;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  background-color: var(--primaryBg);
+  transition: all 0.3s ease;
 }
 
-.nav a:hover::after {
-  transform: scaleX(1);
+.left {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.logo a {
+  text-decoration: none;
+}
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #000;
 }
 
-.nav svg {
-  width: 24px;
-  height: 24px;
+.logo span {
+  color: var(--accent);
+}
+
+/* ===== Navigation Links ===== */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navLinks a {
+  color: var(--primaryText);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: var(--accent);
+}
+
+/* ===== Right Section ===== */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.searchBox {
+  cursor: pointer;
+  color: var(--secondaryText);
+  transition: color 0.3s ease;
+}
+
+.searchBox:hover {
+  color: var(--accent);
 }
 
 .cartIcon {
   position: relative;
 }
+
+.cartIcon a {
+  color: var(--primaryText);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
 .cartIcon span {
   position: absolute;
   top: -6px;
-  right: -8px;
-  background-color: #0011ff;
-  color: white;
+  right: -10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
   border-radius: 50%;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 2px 6px;
-  font-size: 1rem;
+  padding: 2px 5px;
 }
 
-@media (max-width: 600px) {
+/* ===== Mobile Menu Toggle ===== */
+.menuToggle {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--primaryText);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.menuToggle:hover {
+  color: var(--accent);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
   .navbar {
-    padding: 0.8 1.8rem;
+    padding: 1rem 1.5rem;
   }
-  .logo img {
-    width: 34px;
-    height: 34px;
+
+  .menuToggle {
+    display: block;
+    order: -1;
   }
-  .nav {
-    gap: 1rem;
+
+  .navLinks {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: var(--primaryBg);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
-  .nav button {
-    font-size: 0.9rem;
-    padding: 0.8rem;
+
+  .showMenu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
-  .nav svg {
-    width: 22px;
-    height: 22px;
+}
+
+@media (max-width: 480px) {
+  .topBanner {
+    font-size: 0.85rem;
+    padding: 0.4rem;
+  }
+
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .logo h1 {
+    font-size: 1.3rem;
+  }
+
+  .rightSection {
+    gap: 1rem; /* consistent spacing between search and cart */
   }
 }

@@ -1,14 +1,26 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --primaryBg: #ffffff;
+  --secondaryBg: #f7f8fa;
+  --primaryText: #1a1a1a;
+  --secondaryText: #6b7280;
+  --accent: #2563eb;
+  --accentHover: #1e40af;
+}
+
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
+
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: white;
-  color: #000;
+  background-color: var(--primaryBg);
+  color: var(--primaryText);
   line-height: 1.5;
 }

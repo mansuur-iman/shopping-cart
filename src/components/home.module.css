@@ -1,119 +1,412 @@
 .container {
   width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  overflow-x: hidden;
+  background: var(--primaryBg);
+  color: var(--primaryText);
 }
 
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.cards h1 {
-  font-family: "Inter", sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 0.5px;
-  border-left: 4px solid #0073e6;
-  padding-left: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.card {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(275px), 1fr));
-  gap: 1.5rem;
-}
-
-.card > div {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card > div:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-  object-fit: contain;
-  max-width: 100%;
-  height: 150px;
-  margin-bottom: 0.75rem;
-}
-
-.card h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 0.75rem;
-  min-height: 48px;
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
   overflow: hidden;
 }
 
-.card button {
-  background-color: #0073e6;
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.heroContent {
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  transform: translateY(-50%);
+  max-width: 450px;
+  color: #fff;
+}
+
+.heroContent h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.heroContent p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroContent button {
+  background-color: var(--accent);
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.heroContent button:hover {
+  background: var(--accentHover);
+}
+
+/* ===== POPULAR PRODUCTS ===== */
+.popular {
+  padding: 4rem 6rem;
+  background: var(--primaryBg);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.sectionHeader h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.seeMore {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.seeMore:hover {
+  color: var(--accentHover);
+  text-decoration: underline;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px), 1fr));
+  gap: 2rem;
+}
+
+.productGrid a {
+  text-decoration: none;
+}
+
+.productCard {
+  background: var(--secondaryBg);
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+}
+
+.productCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.productCard h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primaryText);
+  height: 2.6rem;
+  overflow: hidden;
+}
+
+.price {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.rating span {
+  font-size: 0.85rem;
+  color: var(--secondaryText);
+}
+
+.buyButton {
+  background-color: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buyButton:hover {
+  background: var(--accentHover);
+  color: #fff;
+}
+
+/* ===== FEATURED PRODUCTS ===== */
+.featured {
+  padding: 4rem 6rem;
+  background: var(--secondaryBg);
+}
+
+.featured h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.featured h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 10%;
+  background-color: var(--accent);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px), 1fr));
+  gap: 2rem;
+}
+
+.featureGrid a {
+  text-decoration: none;
+}
+
+.featureCard {
+  background: var(--primaryBg);
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.featureCard img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  padding: 1rem;
+  background: var(--primaryBg);
+}
+
+.featureInfo {
+  padding: 1rem 1.2rem 1.5rem;
+}
+
+.featureInfo h3 {
+  font-size: 1.1rem;
+  height: 2.6rem;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+  color: var(--primaryText);
+}
+
+.featureInfo p {
+  color: var(--secondaryText);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* ===== CALL TO ACTION ===== */
+.cta {
+  padding: 4rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: #e9ecf1;
+  color: var(--primaryText);
+  border-radius: 16px;
+  margin: 4rem 6rem;
+}
+
+.ctaContent {
+  flex: 1;
+}
+
+.ctaContent h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ctaContent p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.ctaContent button {
+  background: #fff;
+  color: var(--accent);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.ctaContent button:hover {
+  background: var(--accentHover);
+  color: #fff;
+}
+
+.cta img {
+  width: 320px;
+  height: 320px;
+  object-fit: contain;
+  padding: 1rem;
+}
+
+/* ===== NEWSLETTER ===== */
+.newsletter {
+  padding: 4rem 6rem;
+  text-align: center;
+  background: var(--primaryBg);
+}
+
+.newsletter h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.newsletter p {
+  color: var(--secondaryText);
+  margin-bottom: 1.5rem;
+}
+
+.newsForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.newsForm input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  min-width: 250px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.newsForm button {
+  background-color: var(--accent);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-.card button:hover {
-  background-color: #005bb5;
+.newsForm button:hover {
+  background-color: var(--accentHover);
 }
 
+/* ===== MESSAGES ===== */
+.messageLoading,
 .messageError {
-  color: #d9534f;
-  font-weight: 600;
   text-align: center;
-  margin-top: 2rem;
+  padding: 4rem 1rem;
+  font-size: 1.1rem;
+  color: var(--secondaryText);
 }
 
-.messageLoading {
-  color: #555;
+.para {
+  margin-top: 1rem;
   text-align: center;
-  font-style: italic;
-  margin-top: 2rem;
+  font-size: 1.1rem;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .heroContent h1 {
+    font-size: 2.2rem;
   }
 
-  .cards h1 {
-    font-size: 1.5rem;
+  .popular,
+  .featured,
+  .cta,
+  .newsletter {
+    padding: 3rem 2rem;
   }
 
-  .card {
-    gap: 1rem;
+  .cta {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .ctaContent button {
+    margin-top: 0.5rem;
   }
 }
 
-@media (max-width: 480px) {
-  .card > div {
-    padding: 0.75rem;
+@media (max-width: 600px) {
+  .hero {
+    height: 60vh;
   }
 
-  .card h3 {
-    font-size: 0.9rem;
+  .heroContent {
+    left: 5%;
+    right: 5%;
+    max-width: 90%;
+    text-align: center;
   }
 
-  .card button {
-    padding: 0.4rem 0.75rem;
-    font-size: 0.85rem;
+  .heroContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .cta {
+    margin: 2rem 1rem;
+  }
+
+  .productCard img {
+    height: 180px;
+  }
+
+  .featureCard img {
+    height: 180px;
   }
 }
